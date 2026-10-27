@@ -16,7 +16,6 @@ paper. The whole study runs from one script, from solving the CLEWs scenarios to
 | `scenarios/` | The 9 input values of the 8,000 Zambia and 2,000 Ghana scenarios of the study. |
 | `splits/` | The fixed training, calibration and test scenarios of the study. |
 | `clews_models/` | Place for the CLEWs data files of the two models (not included, see Data). |
-| `work/` | Created by `run_all.py`: solved scenarios, data tables, models, results, figures. |
 
 ## Steps of `run_all.py`
 
@@ -90,13 +89,11 @@ with a licence) on the PATH. Steps 2-8 do not need them.
 python run_all.py
 ```
 
-The script starts parallel processes, so it should be run from a terminal and not from Spyder's
-console. Finished work is saved and skipped when the script is started again, so it can be stopped at
-any time. `QUICK = True` runs a short test of steps 3-8 (few sample sizes, repetitions and epochs) in
-`work/quicktest/`, which is useful to check the installation before the full run.
-
-Solving takes on average 0.69 minutes per Zambia scenario and 1.29 minutes per Ghana scenario on one
-core; step 1 solves `SOLVE_WORKERS` scenarios at the same time.
+The settings run several jobs at the same time and suit a computer with 24 cores: 16 scenarios are
+solved at once (`SOLVE_WORKERS = 16`) and up to 24 networks are trained at once (`WORKERS`,
+`ZAMBIA_WORKERS`). On a computer with fewer cores, lower these numbers; set them all to 1 to run one
+job at a time. In the study, solving took on average 0.69 minutes per Zambia scenario and 1.29 minutes
+per Ghana scenario on one core.
 
 ## Reproducibility
 
@@ -109,10 +106,7 @@ core; step 1 solves `SOLVE_WORKERS` scenarios at the same time.
 
 ## Citation
 
-If you use this code, please cite the paper:
-
-G. Pnigouras, F. Gardumi and S. Kumar, *Surrogate Modeling for Fast Scenario Exploration in Climate-Land-Water-Energy Systems: From Zambia to Ghana via Transfer Learning*, submitted.
-(The full reference will be added after publication.)
+The full reference will be added after publication.
 
 ## Licence
 
