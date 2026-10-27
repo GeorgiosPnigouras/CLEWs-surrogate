@@ -7,6 +7,13 @@ OSeMOSYS, evaluates them for two levels of use (screening and detailed use), tra
 from the Zambia model to the Ghana model, and reproduces the demonstration, figures and tables of the
 paper. The whole study runs from one script, from solving the CLEWs scenarios to the figures.
 
+![Workflow of the study](docs/workflow.png)
+
+*Workflow of the study, applied in the same way to Zambia and Ghana. In `run_all.py`, steps 1-2 solve
+the scenarios and build the data sets, step 3 is the hyperparameter tuning, steps 4-5 the training
+(Zambia, then Ghana with and without transfer from Zambia) and step 6 the evaluation for the two levels
+of use.*
+
 ## Files
 
 | File or folder | Content |
