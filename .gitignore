@@ -1,0 +1,4 @@
+work/
+clews_models/*.txt
+__pycache__/
+*.pyc
